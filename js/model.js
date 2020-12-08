@@ -1,11 +1,10 @@
-
 export default class Model{
 
     cities = [];
 
-    getCity(url){
+    getCity({inputCity}){
 
-       // const url = `https://api.openweathermap.org/data/2.5/weather?q=${this.view.inputVal}&APPID=65fadf9c874327f520bf18defed24255&units=metric`;
+       const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity}&APPID=65fadf9c874327f520bf18defed24255&units=metric`;
         return fetch(url)
             .then(response => response.json())
             .then(data => {

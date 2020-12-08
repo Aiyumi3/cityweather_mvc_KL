@@ -3,11 +3,13 @@ export default class View{
     btn = document.querySelector("#search");
     input = document.querySelector("#inp-name");
     msg = document.querySelector(".text-danger");
-    url = `https://api.openweathermap.org/data/2.5/weather?q=${this.input.value}&APPID=65fadf9c874327f520bf18defed24255&units=metric`;
-
 
     constructor( {getCity}){
-        this.btn.addEventListener('click', getCity(this.url));
+        this.btn.addEventListener('click', //e => {
+           // e.preventDefault();
+            getCity
+    //}
+        ); // this.form.addEventListener('submit', getCity);
        // let inputVal = this.input.value;
 
     }

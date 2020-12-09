@@ -14,7 +14,7 @@ export default class View{
 
     }
 
-    renderCity = ({ main, name, sys, weather, wind, icon, coord } ) => {
+    renderCity = ({ weather ,tempMain , tempMin ,tempMax , humidity , windSpeed , coordLon , coordLat ,name ,country, icon } ) => {
         const weatherHtml = `
             <div class="card mb-4" style="border-radius: 17px; margin: 15px;">
                <div class="row no-gutters">
@@ -25,18 +25,18 @@ export default class View{
                       </div>
                       </div> <div class="card-body">
                          <p class="card-text" ><span style="color: #54315c;font-size:15pt;font-weight: 400; 
-                         padding-left: 10px; text-align: center">   ${weather[0]["description"]}</span></p>
-                         <p class="card-text"><span style="font-size:20pt;font-weight: 700;">${Math.round(main.temp)}<sup style="background-color: #ffe4c4;
-                         border-radius: 10px">°C</sup></span><br> min: ${Math.round(main.temp_min)}<sup style="background-color: bisque;
+                         padding-left: 10px; text-align: center">   ${weather}</span></p>
+                         <p class="card-text"><span style="font-size:20pt;font-weight: 700;">${Math.round(tempMain)}<sup style="background-color: #ffe4c4;
+                         border-radius: 10px">°C</sup></span><br> min: ${Math.round(tempMin)}<sup style="background-color: bisque;
                          border-radius: 10px">°C</sup>,
-                          max: ${Math.round(main.temp_max)}<sup style="background-color: bisque;
+                          max: ${Math.round(tempMax)}<sup style="background-color: bisque;
                          border-radius: 10px">°C</sup><br>
-                          humidity 💧: ${main.humidity}  %<br>
-                          wind speed: ${wind["speed"]} m/s
-                         <br> <small class="text-muted">coords: ${coord["lon"]}, ${coord["lat"]}</small>
+                          humidity 💧: ${humidity}  %<br>
+                          wind speed: ${windSpeed} m/s
+                         <br> <small class="text-muted">coords: ${coordLon}, ${coordLat}</small>
                          </p>
                          <h5 class="card-title"> ${name}, <span style="background-color: #efd0f7;
-                         border-radius: 11px">${sys.country}</span></h5>
+                         border-radius: 11px">${country}</span></h5>
                       </div>
                </div>
             </div>

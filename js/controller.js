@@ -16,7 +16,7 @@ export default class Controller{
 
 
     getCity(){
-        this.model.getCity(this.view.input.value).then(() => {
+        this.model.getCity(this.view.input.textContent).then(() => {
             const city = this.model.getLastCity();
 
             this.view.renderCity(city);

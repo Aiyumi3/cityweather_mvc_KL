@@ -44,7 +44,7 @@ export default class View{
         const answ = {
             name : this.input.value
         };
-        this.input.value = ''
+        this.input.value = '';
         this.msg.innerHTML = '';
         this.input.focus();
         return answ;
@@ -53,5 +53,7 @@ export default class View{
 
     showNameError(){
         this.msg.innerHTML = 'enter a valid city!!!';
+        this.input.value = '';
+        this.input.focus();
     }
 }

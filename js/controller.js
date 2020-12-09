@@ -4,7 +4,6 @@ import View from "./view.js";
 export default class Controller{
 
     listener = {
-       // getCity: this.getCity(this.view.url).bind(this)
         getCity: this.getCity.bind(this)
     };
 
@@ -13,16 +12,15 @@ export default class Controller{
         this.model = new Model();
 
     }
-
-
     getCity(){
         this.model.getCity(this.view.input.value).then(() => {
             const city = this.model.getLastCity();
 
             this.view.renderCity(city);
+            this.view.getInp();
 
         }).catch(() => {
-          this.view.showNameError();
+            this.view.showNameError();
         });
     }
 

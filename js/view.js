@@ -1,17 +1,13 @@
 export default class View{
-    form = document.querySelector("form");
+
     btn = document.querySelector("#search");
     input = document.querySelector("#inp-name");
     msg = document.querySelector(".text-danger");
 
     constructor( {getCity}){
-        this.btn.addEventListener('click', //e => {
-           // e.preventDefault();
+        this.btn.addEventListener('click',
             getCity
-    //}
-        ); // this.form.addEventListener('submit', getCity);
-       // let inputVal = this.input.value;
-
+        );
     }
 
     renderCity = ({ weather ,tempMain , tempMin ,tempMax , humidity , windSpeed , coordLon , coordLat ,name ,country, icon } ) => {
@@ -43,11 +39,15 @@ export default class View{
             `;
         const contWeather = document.querySelector('.container #weather-container');
         contWeather.insertAdjacentHTML('afterbegin', weatherHtml);
-
-
+    }
+    getInp() {
+        const answ = {
+            name : this.input.value
+        };
+        this.input.value = ''
         this.msg.innerHTML = '';
-        this.form.reset();
         this.input.focus();
+        return answ;
     }
 
 

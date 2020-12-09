@@ -4,22 +4,12 @@ export default class Model{
 
     getCity(inputCity){
 
-       let url = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity}&APPID=65fadf9c874327f520bf18defed24255&units=metric`;
-        return fetch(url, {
-            method: 'post',
-        headers: {
-                "Content-type":"application/x-www-form-urlencoded; charset=UTF-8"
-        },
-        body: 'foo=bar&lorem=ipsum'
-        })
-            .then(response =>{
-                if (!response.ok) { throw response }
-                return response.json()})
+        let url = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity}&APPID=65fadf9c874327f520bf18defed24255&units=metric`;
+        return fetch(url)
+            .then(response =>response.json())
             .then(data => {
                 const { main, name, sys, weather, coord, wind } = data;
-                const icon = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${
-                    weather[0]["icon"]
-                }.svg`;
+
 
                 const city = {
 
@@ -32,13 +22,13 @@ export default class Model{
                     coordLon : coord["lon"],
                     coordLat : coord["lat"],
                     name : name,
-                    country: sys["country"]
-
+                    country: sys["country"],
+                    icon: `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${
+                        weather[0]["icon"]
+                    }.svg`
                 };
 
                 this.cities.push(city);
-            }).catch(function (error) {
-                console.log('Request failed', error);
             });
     }
 

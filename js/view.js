@@ -18,11 +18,11 @@ export default class View{
                   <div class="col-8 col-xl-7">
                     <div class="float-left">
                       <img src="${icon}" class="card-img" alt="weather" style="margin: 7px">
+                      <p class="card-text" ><span style="color: #54315c;font-size:15pt;font-weight: 400; 
+                         padding-left: 10px; text-align: center">${weather}</span></p>
                       </div>
                       </div> <div class="card-body">
-                         <p class="card-text" ><span style="color: #54315c;font-size:15pt;font-weight: 400; 
-                         padding-left: 10px; text-align: center">   ${weather}</span></p>
-                         <p class="card-text"><span style="font-size:20pt;font-weight: 700;">${Math.round(tempMain)}<sup style="background-color: #ffe4c4;
+                         <p class="card-text" style="text-align: center;"><span style="font-size:20pt;font-weight: 700;">${Math.round(tempMain)}<sup style="background-color: #ffe4c4;
                          border-radius: 10px">°C</sup></span><br> min: ${Math.round(tempMin)}<sup style="background-color: bisque;
                          border-radius: 10px">°C</sup>,
                           max: ${Math.round(tempMax)}<sup style="background-color: bisque;

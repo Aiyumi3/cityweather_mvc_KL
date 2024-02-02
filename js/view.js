@@ -38,7 +38,7 @@ export default class View{
             </div>
             `;
         const contWeather = document.querySelector('.container #weather-container');
-        contWeather.insertAdjacentHTML('afterbegin', weatherHtml);
+        contWeather.innerHTML = weatherHtml;
     }
     getInp() {
         const answ = {
